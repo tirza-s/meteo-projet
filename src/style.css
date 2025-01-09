@@ -1,0 +1,121 @@
+/*
+color theme
+    background-color: #F5EFFF;
+    button-color : #A294F9;
+    section-color : #E5D9F2;
+*/
+body {
+    background-color: #E5D9F2;
+    font-family: "Quicksand", serif;
+    margin: 0;
+    padding-top: 50px;
+    color: #272829
+}
+
+main {
+    text-align: center;
+}
+
+.wrapper {
+    height: 725px;
+    width: 550px;
+    background-color: #e1cdf6;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+form {
+    margin-left: 30px;
+}
+
+/* city city & search input goes below */
+.search-city {
+    background-color: #E5D9F2;
+    border: 1px solid #E5D9F2;
+    border-radius: 5px;
+    padding: 15px 0px;
+    padding-left: 10px;
+    width: 70%;
+    margin: 35px 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.search-input {
+    background-color: #A294F9;
+    border: 1px solid #E5D9F2;
+    border-radius: 5px;
+    padding: 15px 15px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #E5D9F2;
+}
+
+/* current city style */
+h1 {
+    margin: 0px;
+    color: #A294F9;
+    font-size: 42px;
+    font-weight: 800;
+}
+
+
+.forecast {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.forecast ul li {
+    list-style-type: none;
+    line-height: 2;
+}
+
+/* Forecast style goes below */
+
+.forecast {
+    background-color: #E5D9F2;
+    border-radius: 10px;
+    width: 310px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.forecase-item {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+ul {
+    padding-left: 0px;
+}
+
+#current-temperature-icon {
+    font-size: 32px;
+    position: relative;
+    bottom: 5px;
+}
+
+#current-temperature-value {
+    font-size: 46px;
+}
+
+#current-temperature-unit {
+    font-size: 32px;
+    position: relative;
+    bottom: 10px;
+}
+
+footer {
+    text-align: center;
+}
+
+a {
+    color: #A294F9;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: underline
+}
