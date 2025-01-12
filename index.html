@@ -22,18 +22,19 @@
 <body>
     <div class="wrapper">
         <header>
-            <form>
-                <input class="search-city" type="text" placeholder="Enter a city..." required autofocus />
+            <form id="search-form">
+                <input id="search-city-form" class="search-city" type="text" placeholder="Enter a city..." required
+                    autofocus />
                 <input class="search-input" type="submit" value="Search" />
             </form>
         </header>
 
         <main>
-            <h1 id="current-city">Brussels</h1>
+            <h1 id="current-city"></h1>
 
             <div class="current-temperature-details">
-                <span id="current-temperature-icon">❄️</span>
-                <span id="current-temperature-value">2</span>
+                <span id="current-temperature-icon">⛅️</span>
+                <span id="current-temperature-value"></span>
                 <span id="current-temperature-unit">°C</span>
 
             </div>
