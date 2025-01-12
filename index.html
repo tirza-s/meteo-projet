@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
 
+    <!--Axios goes below-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <title>Météo Projet 🌤️</title>
 </head>
 
@@ -37,9 +40,10 @@
 
             <div class="weather-details">
                 <p>
-                    <span>Snow | Thursday 9 Jan 2025 | 16:00 </span>
-                    </br>
-                    <span>Humidity : <strong>91% </strong> Wind : <strong>28km/h</strong> </span>
+                    <span class="weather-data">Thursday 9 Jan 2025 | 16:00 | Snow </span><br>
+
+                    <span class="humidity-details">Humidity : <strong>91% </strong> Wind : <strong>28km/h</strong>
+                    </span>
                 </p>
             </div>
         </main>
@@ -133,6 +137,7 @@
         </footer>
     </div>
 
+    <script src="/src/script.js"></script>
 </body>
 
 </html>

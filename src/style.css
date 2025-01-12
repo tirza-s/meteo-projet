@@ -1,15 +1,9 @@
-/*
-color theme
-    background-color: #F5EFFF;
-    button-color : #A294F9;
-    section-color : #E5D9F2;
-*/
 body {
     background-color: #d5d8efae;
+    color: #272829;
     font-family: "Quicksand", serif;
     margin: 0;
     padding-top: 50px;
-    color: #272829
 }
 
 main {
@@ -17,10 +11,10 @@ main {
 }
 
 .wrapper {
-    height: 725px;
+    height: 735px;
     width: 550px;
     background: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 0 auto;
 }
 
@@ -33,27 +27,27 @@ form {
     background-color: #d5d8efae;
     border: 1px solid #d5d8efae;
     border-radius: 5px;
+    font-size: 16px;
     padding: 15px 0px;
     padding-left: 10px;
-    width: 71%;
     margin: 35px 10px;
     margin-bottom: 10px;
-    font-size: 16px;
+    width: 71%;
 }
 
 .search-input {
     background-color: #5753C9;
     border: 1px solid #d5d8efae;
     border-radius: 5px;
-    padding: 15px 12px;
+    color: #E5D9F2;
     font-size: 16px;
     font-weight: 600;
-    color: #E5D9F2;
+    padding: 15px 12px;
 }
 
 .search-input:hover {
-    cursor: pointer;
     background-color: #d5d8efae;
+    cursor: pointer;
     color: #272829;
     transition: all 150ms ease-in-out;
 }
@@ -64,6 +58,10 @@ h1 {
     color: #d5d8efae;
     font-size: 42px;
     font-weight: 800;
+}
+
+.weather-data {
+    line-height: 1.8;
 }
 
 /* Forecast style goes below */
@@ -84,7 +82,7 @@ h1 {
     width: 280px;
     padding-top: 2px;
     padding-bottom: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .forecast-item.container {
@@ -95,10 +93,10 @@ h1 {
 .day {
     flex: 1;
     /* Make the day span take up equal space */
-    text-align: left;
     font-weight: bold;
     font-size: 14px;
     padding-left: 18px;
+    text-align: left;
 }
 
 .temperature {
@@ -131,36 +129,37 @@ p span {
 }
 
 #current-temperature-icon {
+    bottom: 5px;
     font-size: 28px;
     position: relative;
-    bottom: 5px;
 }
 
 #current-temperature-value {
-    font-size: 46px;
     color: #d5d8efae;
+    font-size: 46px;
 }
 
 #current-temperature-unit {
+    bottom: 10px;
     color: #d5d8efae;
     font-size: 32px;
     position: relative;
-    bottom: 10px;
 }
 
 footer {
-    text-align: center;
     color: #d5d8efae;
+    text-align: center;
 }
 
 a {
     color: #272829;
-    text-decoration: none;
     font-weight: 500;
+    text-decoration: none;
 }
 
 a:hover {
     cursor: pointer;
+    color: #d5d8efae;
     text-decoration: underline;
     transition: all 150ms ease-in-out;
 }
