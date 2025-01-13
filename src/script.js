@@ -4,6 +4,7 @@ function cityScanning(city) {
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(updateCurrentWeather);
 }
+
 function updateCurrentWeather(response) {
     let temperatureValueElement = document.getElementById("current-temperature-value");
     let temperature = Math.round(response.data.temperature.current)
@@ -15,11 +16,37 @@ function updateCurrentWeather(response) {
 
     let humidityElement = document.getElementById("humidity-details");
     let currentHumidity = Math.round(response.data.temperature.humidity);
-    humidityElement.innerHTML = `Humidity : <strong>${currentHumidity}%</strong>`;
+    humidityElement.innerHTML = `Humidity: <strong>${currentHumidity}%</strong > `;
 
     let windElement = document.getElementById("wind-speed");
     let currentWind = Math.round(response.data.wind.speed);
-    windElement.innerHTML = `Wind : <strong>${currentWind} </strong>`
+    windElement.innerHTML = `Wind: <strong>${currentWind} </strong>`
+
+    let timeElement = document.getElementById("time");
+    let date = new Date(response.data.time * 1000);
+    timeElement.innerHTML = formatDate(date);
+
+    //injection the icon url 
+    let iconElement = document.getElementById("weather-app-icon");
+
+    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"id = "current-temperature-icon">`
+}
+
+function formatDate(date) {
+
+    let minutes = date.getMinutes();
+    let hour = date.getHours();
+
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    let day = days[date.getDay()];
+
+    //If minutes is less than 10, it will add a leading 0 to make it look like a two-digit number (e.g.,7 becomes 07).
+    if (minutes < 10) {
+        minutes = `0${minutes} `;
+    }
+
+    return `${day} , ${hour}:${minutes} |`;
 }
 
 

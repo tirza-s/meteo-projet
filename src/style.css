@@ -11,7 +11,7 @@ main {
 }
 
 .wrapper {
-    height: 735px;
+    height: 745px;
     width: 550px;
     background: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
     border-radius: 10px;
@@ -60,7 +60,7 @@ h1 {
     font-weight: 800;
 }
 
-.weather-data {
+#time {
     line-height: 1.8;
 }
 
@@ -129,18 +129,19 @@ p span {
 }
 
 #current-temperature-icon {
-    bottom: 5px;
+    bottom: -9px;
     font-size: 28px;
     position: relative;
+    width: 58px;
 }
 
 #current-temperature-value {
     color: #d5d8efae;
-    font-size: 46px;
+    font-size: 58px;
 }
 
 #current-temperature-unit {
-    bottom: 10px;
+    bottom: 17px;
     color: #d5d8efae;
     font-size: 32px;
     position: relative;

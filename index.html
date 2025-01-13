@@ -13,10 +13,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
 
+    <!--Font awesome-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
     <!--Axios goes below-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <title>Météo Projet 🌤️</title>
+    <title>Weather app 🌤️ - V1</title>
 </head>
 
 <body>
@@ -30,10 +33,10 @@
         </header>
 
         <main>
-            <h1 id="current-city"></h1>
+            <h1 id="current-city">Brussels</h1>
 
             <div class="current-temperature-details">
-                <span id="current-temperature-icon">⛅️</span>
+                <span id="weather-app-icon"></span>
                 <span id="current-temperature-value"></span>
                 <span id="current-temperature-unit">°C</span>
 
@@ -41,8 +44,8 @@
 
             <div class="weather-details">
                 <p>
-                    <span class="weather-data">Thursday 9 Jan 2025 | 16:00 | </span> <span
-                        id="description">Snow</span><br>
+                    <span id="time"></span>
+                    <span id="description">Snow</span><br>
 
                     <span id="humidity-details">Humidity : 91% </span>
                     <span id="wind-speed">Wind : 28km/h</span>
@@ -130,11 +133,13 @@
             </ul>
         </section>
 
-        <footer><small> This project was coded by <a href="https://github.com/tirza-s">Tirza Samosir</a> and
-                is on <a href="https://github.com/tirza-s/meteo-projet">Github</a> and hosted on <a
-                    href="https://app.netlify.com">Netflify</a></small>
+        <footer><small> &copy; <a href="https://github.com/tirza-s">Tirza Samosir</a> open source on <a
+                    href="https://github.com/tirza-s/meteo-projet" target="_blank"> <i
+                        class="fa-brands fa-github-alt"></i>
+
+                </a> hosted on <a href="https://app.netlify.com">Netlify</a></small>
             <br>
-            <small>&copy;2025 </small>
+            <small>2025 </small>
         </footer>
     </div>
 
