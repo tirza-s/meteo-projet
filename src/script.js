@@ -16,11 +16,11 @@ function updateCurrentWeather(response) {
 
     let humidityElement = document.getElementById("humidity-details");
     let currentHumidity = Math.round(response.data.temperature.humidity);
-    humidityElement.innerHTML = `Humidity: <strong>${currentHumidity}%</strong > `;
+    humidityElement.innerHTML = ` <i class="fa-solid fa-droplet"></i> Humidity : <strong>${currentHumidity}%</strong > | `;
 
     let windElement = document.getElementById("wind-speed");
     let currentWind = Math.round(response.data.wind.speed);
-    windElement.innerHTML = `Wind: <strong>${currentWind} </strong>`
+    windElement.innerHTML = `<i class="fa-solid fa-wind"></i> Wind : <strong>${currentWind} </strong>`
 
     let timeElement = document.getElementById("time");
     let date = new Date(response.data.time * 1000);
@@ -37,7 +37,7 @@ function formatDate(date) {
     let minutes = date.getMinutes();
     let hour = date.getHours();
 
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 
     let day = days[date.getDay()];
 
@@ -46,7 +46,7 @@ function formatDate(date) {
         minutes = `0${minutes} `;
     }
 
-    return `${day} , ${hour}:${minutes} |`;
+    return `Last updated : ${day} , ${hour}:${minutes} |`;
 }
 
 
