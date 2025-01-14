@@ -52,7 +52,6 @@ function formatDate(date) {
     return `Last updated : ${day} , ${hour}:${minutes} |`;
 }
 
-
 function displayCurrentCity(event) {
     event.preventDefault();
 
