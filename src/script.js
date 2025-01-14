@@ -19,7 +19,7 @@ function updateCurrentWeather(response) {
     let date = new Date(response.data.time * 1000);
     timeElement.innerHTML = formatDate(date);
 
-    //injection the icon url 
+    //inject the icon url 
     let iconElement = document.getElementById("weather-app-icon");
 
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"id = "current-temperature-icon">`
@@ -117,5 +117,5 @@ function displayWeatherForecast(response) {
 let searchForm = document.getElementById("search-form");
 searchForm.addEventListener("submit", displayCurrentCity);
 
-// Display the default current weather data
+// Display default city 
 cityScanning("Brussels");
