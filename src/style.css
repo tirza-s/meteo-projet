@@ -54,7 +54,7 @@ form {
 
 /* current city style */
 h1 {
-    margin: 0px;
+    margin: 20px 0px;
     color: #d5d8efae;
     font-size: 42px;
     font-weight: 800;
@@ -79,11 +79,11 @@ h1 {
     background-color: #d5d8efae;
     border-radius: 10px;
     box-shadow: 2px 2px 6px 1px rgba(154, 154, 159, 0.577);
-
     color: #5753C9;
-    padding-top: 2px;
+    padding-top: 10px;
     padding-bottom: 5px;
     margin-bottom: 15px;
+    margin-top: 30px;
     width: 280px;
 }
 
@@ -130,6 +130,11 @@ ul {
 
 p span {
     color: #e8e9f3ae;
+    line-height: 2;
+}
+
+#current-temperature-details {
+    margin-top: -15px;
 }
 
 #current-temperature-icon {
@@ -155,6 +160,7 @@ footer {
     color: #d5d8efae;
     font-size: 14px;
     text-align: center;
+    margin-top: 22px;
 }
 
 a {

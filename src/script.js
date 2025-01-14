@@ -1,10 +1,3 @@
-function cityScanning(city) {
-    // make api call and update the interface
-    let apiKey = "b164e02a4a760t33f3o317f1aa0024b6";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(updateCurrentWeather);
-}
-
 function updateCurrentWeather(response) {
     let temperatureValueElement = document.getElementById("current-temperature-value");
     let temperature = Math.round(response.data.temperature.current)
@@ -30,6 +23,16 @@ function updateCurrentWeather(response) {
     let iconElement = document.getElementById("weather-app-icon");
 
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"id = "current-temperature-icon">`
+
+    getForecastData(response.data.city);
+}
+
+// search for the city function
+function cityScanning(city) {
+    // make api call and update the interface
+    let apiKey = "b164e02a4a760t33f3o317f1aa0024b6";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(updateCurrentWeather);
 }
 
 function formatDate(date) {
@@ -66,8 +69,51 @@ function displayCurrentCity(event) {
     cityScanning(formattedCity)
 }
 
+// Search for forecast data
+function getForecastData(city) {
+    let apiKeyForecast = "b164e02a4a760t33f3o317f1aa0024b6";
+    let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKeyForecast}&units=metric`;
+
+    axios.get(apiUrlForecast).then(displayWeatherForecast);
+
+}
+
+function displayWeatherForecast(response) {
+
+    let days = ["Wed", "Thur", "Fri", "Sat", "Sun", "Mon", "Tue",];
+
+    let forecastHTML = "<ul>";
+
+    days.forEach(function (day) {
+        forecastHTML += `
+        <li class="forecast-item container">
+            <span class="day">${day}</span>
+            <span class="weather-icon">⛅️</span>
+            <span class="temperature">
+                <span class="temp-value">-4</span>
+                <span class="temp-unit">°C</span>
+            </span>
+        </li>`;
+    });
+
+    forecastHTML += "</ul>";
+    let forecastElement = document.getElementById("weather-forecast");
+
+    // Append the generated HTML while keeping the existing <h4>
+    forecastElement.innerHTML += forecastHTML;
+}
+
+
 let searchForm = document.getElementById("search-form");
 searchForm.addEventListener("submit", displayCurrentCity);
 
-
+// Display the default current weather data
 cityScanning("Brussels");
+
+//display the forecast data
+displayWeatherForecast();
+
+getForecastData("Brussels");
+
+
+
