@@ -60,6 +60,14 @@ h1 {
     font-weight: 800;
 }
 
+h4 {
+    margin-top: 10px;
+}
+
+p {
+    margin-top: 4px;
+}
+
 #time {
     line-height: 1.8;
 }
@@ -81,9 +89,8 @@ h1 {
     box-shadow: 2px 2px 6px 1px rgba(154, 154, 159, 0.577);
     color: #5753C9;
     padding-top: 10px;
-    padding-bottom: 5px;
     margin-bottom: 15px;
-    margin-top: 30px;
+    margin-top: 10px;
     width: 280px;
 }
 
@@ -111,8 +118,7 @@ h1 {
 }
 
 .weather-icon {
-    font-size: 16px;
-    text-align: center;
+    width: 30px;
 }
 
 .temp-value {
@@ -133,13 +139,13 @@ p span {
     line-height: 2;
 }
 
-#current-temperature-details {
+.current-temperature-details {
     margin-top: -15px;
 }
 
 #current-temperature-icon {
     bottom: -9px;
-    font-size: 28px;
+    width: 12px;
     position: relative;
     width: 58px;
 }
@@ -160,7 +166,7 @@ footer {
     color: #d5d8efae;
     font-size: 14px;
     text-align: center;
-    margin-top: 22px;
+    margin-top: 30px;
 }
 
 a {

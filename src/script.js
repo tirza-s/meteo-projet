@@ -75,32 +75,43 @@ function getForecastData(city) {
     let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKeyForecast}&units=metric`;
 
     axios.get(apiUrlForecast).then(displayWeatherForecast);
+}
 
+function formattedDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
+    return days[date.getDay()];
 }
 
 function displayWeatherForecast(response) {
-
-    let days = ["Wed", "Thur", "Fri", "Sat", "Sun", "Mon", "Tue",];
+    console.log(response.data);
 
     let forecastHTML = "<ul>";
 
-    days.forEach(function (day) {
-        forecastHTML += `
+    response.data.daily.forEach(function (day, index) {
+
+        if (index < 7) {
+
+            let maxTemperature = Math.round(day.temperature.maximum);
+
+            forecastHTML += `
         <li class="forecast-item container">
-            <span class="day">${day}</span>
-            <span class="weather-icon">⛅️</span>
+            <span class="day">${formattedDay(day.time)}</span>
+            <span > <img class="weather-icon" src="${day.condition.icon_url}" alt="{day.condition.description}"></span>
             <span class="temperature">
-                <span class="temp-value">-4</span>
+                <span class="temp-value">${maxTemperature}</span>
                 <span class="temp-unit">°C</span>
             </span>
         </li>`;
+        }
     });
 
     forecastHTML += "</ul>";
     let forecastElement = document.getElementById("weather-forecast");
 
-    // Append the generated HTML while keeping the existing <h4>
-    forecastElement.innerHTML += forecastHTML;
+    // Clear previous forecast and set the new one
+    forecastElement.innerHTML = `<h4> 7-days forecast</h4>` + forecastHTML;
 }
 
 
@@ -109,11 +120,3 @@ searchForm.addEventListener("submit", displayCurrentCity);
 
 // Display the default current weather data
 cityScanning("Brussels");
-
-//display the forecast data
-displayWeatherForecast();
-
-getForecastData("Brussels");
-
-
-
