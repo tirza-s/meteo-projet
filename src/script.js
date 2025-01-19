@@ -79,30 +79,44 @@ function getForecastData(city) {
 function formattedDay(timestamp) {
     let date = new Date(timestamp * 1000);
     let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-
     return days[date.getDay()];
 }
 
 function displayWeatherForecast(response) {
-    console.log(response.data);
+    console.log("Forecast data : ", response.data);
 
     let forecastHTML = "<ul>";
 
-    response.data.daily.forEach(function (day, index) {
+    let forecastDays = response.data.daily;
 
-        if (index < 7) {
+    // // Ensure tomorrow is the first day displayed
+    const today = new Date(); // current local date
+    const todayIndex = today.getDay(); // Index for today in week (0=Sunday, 6=Saturday)
+
+    let displayedDays = 0; // Track how many days we've displayed
+
+    forecastDays.forEach(function (day, index) {
+        // Check if the forecast day matches today
+        let forecastDate = new Date(day.time * 1000); // Convert forecast time
+        let forecastIndex = forecastDate.getDay();
+
+        // Only start displaying forecast if it's not today
+        if (forecastIndex !== todayIndex && displayedDays < 7) {
 
             let maxTemperature = Math.round(day.temperature.maximum);
+            let dayName = formattedDay(day.time); //get the day name
 
             forecastHTML += `
         <li class="forecast-item container">
-            <span class="day">${formattedDay(day.time)}</span>
-            <span > <img class="weather-icon" src="${day.condition.icon_url}" alt="{day.condition.description}"></span>
+            <span class="day">${dayName}</span>
+            <span > <img class="weather-icon" src="${day.condition.icon_url}" alt="${day.condition.description}"></span>
             <span class="temperature">
                 <span class="temp-value">${maxTemperature}</span>
                 <span class="temp-unit">°C</span>
             </span>
         </li>`;
+
+            displayedDays++; // Increment counter after adding a day to the forecast
         }
     });
 
@@ -110,9 +124,8 @@ function displayWeatherForecast(response) {
     let forecastElement = document.getElementById("weather-forecast");
 
     // Clear previous forecast and set the new one
-    forecastElement.innerHTML = `<h4> 7-days forecast</h4>` + forecastHTML;
+    forecastElement.innerHTML = `<h4> 6-days forecast</h4>` + forecastHTML;
 }
-
 
 let searchForm = document.getElementById("search-form");
 searchForm.addEventListener("submit", displayCurrentCity);
